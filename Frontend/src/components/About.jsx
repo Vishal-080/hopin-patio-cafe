@@ -33,19 +33,19 @@ const About = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mb-8"></div>
           <div className="max-w-4xl mx-auto">
-            <p className="text-xl text-neutral-dark/80 mb-8 leading-relaxed">
+            <p className="text-xl text-neutral-dark mb-8 leading-relaxed font-medium drop-shadow-sm">
               HOPIN PATIO Cafe was born from a simple dream: to create a sanctuary
               where coffee lovers can escape the ordinary and indulge in the extraordinary.
               Our patio setting offers a unique blend of indoor comfort and outdoor serenity.
             </p>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-lg text-neutral-dark/80 mb-6 leading-relaxed">
+                <p className="text-lg text-neutral-dark mb-6 leading-relaxed font-medium drop-shadow-sm">
                   We believe that great coffee is more than just a beverage—it's an experience.
                   From the moment you step into our space, you're welcomed into a world of
                   refined taste, warm hospitality, and moments of pure bliss.
                 </p>
-                <p className="text-lg text-neutral-dark/80 leading-relaxed">
+                <p className="text-lg text-neutral-dark leading-relaxed font-medium drop-shadow-sm">
                   Every detail, from our carefully selected beans to our elegant presentation,
                   reflects our commitment to providing you with nothing less than perfection.
                 </p>

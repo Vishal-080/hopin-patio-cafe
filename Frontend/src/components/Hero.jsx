@@ -35,7 +35,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24"
+      className="relative min-h-screen flex items-center justify-center pb-12 overflow-hidden pt-24"
     >
       {/* Background Image with Parallax Effect */}
       <div className="absolute inset-0 z-0">
@@ -111,11 +111,11 @@ const Hero = () => {
 
         <div className="w-24 h-1 bg-cafe-teal mx-auto mb-8 animate-slide-up"></div>
 
-        <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-4 font-serif italic animate-slide-up">
+        <p className="text-xl md:text-2xl lg:text-3xl text-neutral-dark mb-4 font-serif italic animate-slide-up drop-shadow-lg">
           Where Luxury Meets Flavor
         </p>
 
-        <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto mb-8 animate-slide-up">
+        <p className="text-base md:text-lg text-neutral-dark max-w-2xl mx-auto mb-8 animate-slide-up drop-shadow-lg">
           Experience the perfect blend of premium coffee, exquisite ambiance,
           and unparalleled service in our elegant patio setting.
         </p>
@@ -123,27 +123,23 @@ const Hero = () => {
         {/* Top Review Snippet */}
         <div className="max-w-md mx-auto mb-12 bg-gradient-to-r from-primary/15 via-secondary/10 to-accent/15 backdrop-blur-md rounded-lg p-4 border border-primary/25 animate-slide-up">
           <div className="flex items-center gap-2 mb-2">{renderStars(5)}</div>
-          <p className="text-white/95 text-sm italic mb-2">
+          <p className="text-neutral-dark text-sm italic mb-2">
             "Absolutely stunning atmosphere! The patio setting is perfect, and
             the coffee is exceptional."
           </p>
-          <p className="text-white/85 text-xs">
-            — Sarah Mitchell, Verified Customer
-          </p>
-        </div>
-        <div className="max-w-md mx-auto mb-12 bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20 animate-slide-up">
-          <div className="flex items-center gap-2 mb-2">{renderStars(5)}</div>
-          <p className="text-white/90 text-sm italic mb-2">
-            "Absolutely stunning atmosphere! The patio setting is perfect, and
-            the coffee is exceptional."
-          </p>
-          <p className="text-white/70 text-xs">
+          <p className="text-neutral-dark text-xs">
             — Sarah Mitchell, Verified Customer
           </p>
         </div>
 
         {/* Multiple CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
+          <a
+            href="#menu"
+            className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold uppercase tracking-wider rounded-lg hover:from-primary-dark hover:to-secondary-dark transition-all duration-300 transform hover:scale-105 shadow-xl"
+          >
+            View Menu
+          </a>
           <a
             href="#contact"
             className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold uppercase tracking-wider rounded-lg hover:from-primary-dark hover:to-secondary-dark transition-all duration-300 transform hover:scale-105 shadow-xl group"
@@ -166,28 +162,22 @@ const Hero = () => {
             </span>
           </a>
           <a
-            href="#menu"
-            className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider rounded-sm hover:bg-white hover:text-cafe-dark transition-all duration-300 transform hover:scale-105"
-          >
-            View Menu
-          </a>
-          <a
             href="tel:+1234567890"
-            className="px-8 py-4 bg-teal-light/20 backdrop-blur-md border-2 border-teal-primary/50 text-teal-primary font-semibold uppercase tracking-wider rounded-lg hover:bg-teal-light/30 transition-all duration-300 transform hover:scale-105"
+            className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold uppercase tracking-wider rounded-lg hover:from-primary-dark hover:to-secondary-dark transition-all duration-300 transform hover:scale-105 shadow-xl"
           >
             Call Now
           </a>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator
       <button
         onClick={scrollToNext}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 text-white/80 hover:text-cafe-teal transition-colors duration-300 animate-float"
         aria-label="Scroll down"
       >
         <FiArrowDown size={32} />
-      </button>
+      </button> */}
     </section>
   );
 };
