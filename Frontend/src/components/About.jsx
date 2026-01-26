@@ -94,10 +94,10 @@ const About = () => {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              'https://images.unsplash.com/photo-1501339847302-ac426a4c7c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-              'https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-              'https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
-              'https://images.unsplash.com/photo-1511920170033-83939cdc2da7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+              '/images/hopin_outer.jpg',
+              '/images/hopin_outer2.jpg',
+              '/images/hopin_outer3.jpg',
+              '/images/hopin_outer4.jpg',
             ].map((url, index) => (
               <div
                 key={index}
@@ -127,55 +127,7 @@ const About = () => {
           </a>
         </div>
 
-        {/* Team Highlights */}
-        <div className="bg-gradient-to-br from-neutral/50 via-primary/5 to-secondary/5 rounded-3xl p-12">
-          <div className="text-center mb-12">
-            <span className="text-primary text-sm uppercase tracking-wider font-medium">
-              Our Team
-            </span>
-            <h3 className="text-3xl md:text-4xl font-serif font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mt-4 mb-8">
-              Meet the Experts
-            </h3>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Master Barista',
-                role: 'Coffee Artisan',
-                description: '15+ years of experience crafting the perfect cup',
-                icon: <FiCoffee size={32} />,
-              },
-              {
-                name: 'Head Pastry Chef',
-                role: 'Culinary Artist',
-                description: 'Award-winning pastry creations that delight the senses',
-                icon: <FiHeart size={32} />,
-              },
-              {
-                name: 'Hospitality Director',
-                role: 'Guest Experience',
-                description: 'Ensuring every visit is an exceptional experience',
-                icon: <FiUsers size={32} />,
-              },
-            ].map((member, index) => (
-              <div
-                key={index}
-                className="text-center p-8 glass-morphism rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 group border border-white/20"
-              >
-                <div className="w-20 h-20 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <div className="text-primary">
-                    {member.icon}
-                  </div>
-                </div>
-                <h4 className="text-xl font-serif font-semibold text-neutral-dark mb-2 group-hover:text-primary transition-colors duration-300">
-                  {member.name}
-                </h4>
-                <p className="text-secondary font-medium mb-4 group-hover:text-primary transition-colors duration-300">{member.role}</p>
-                <p className="text-neutral-dark/70 text-sm group-hover:text-neutral-dark transition-colors duration-300">{member.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   )
