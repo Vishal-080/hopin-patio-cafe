@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { FiInstagram, FiFacebook, FiTwitter } from 'react-icons/fi'
 
 const Footer = () => {
@@ -53,6 +54,13 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.querySelector(link.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                     className="text-white/70 hover:text-teal-primary transition-colors duration-300"
                   >
                     {link.name}

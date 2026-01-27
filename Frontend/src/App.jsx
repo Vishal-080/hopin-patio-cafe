@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Navigation from './components/Navigation'
 
 import Hero from './components/Hero'
@@ -31,28 +32,34 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral via-primary-light/20 to-secondary-light/20">
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Navigation />
+            <Hero />
+            <About />
+            <Menu />
+            <Reviews />
+            <GoogleReviews />
+            <Gallery />
+            <Contact />
+            <Newsletter />
+            <Footer />
 
-      <Navigation />
-      <Hero />
-      <About />
-      <Menu />
-      <Reviews />
-      <GoogleReviews />
-      <Gallery />
-      <Contact />
-      <Newsletter />
-      <Footer />
-
-      {/* Scroll to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 bg-cafe-gold text-cafe-brown p-4 rounded-full shadow-lg hover:bg-cafe-brown hover:text-white transition-all duration-300 transform hover:scale-110"
-          aria-label="Scroll to top"
-        >
-          <FiArrowUp size={24} />
-        </button>
-      )}
+            {/* Scroll to Top Button */}
+            {showScrollTop && (
+              <button
+                onClick={scrollToTop}
+                className="fixed bottom-8 right-8 z-40 bg-cafe-gold text-cafe-brown p-4 rounded-full shadow-lg hover:bg-cafe-brown hover:text-white transition-all duration-300 transform hover:scale-110"
+                aria-label="Scroll to top"
+              >
+                <FiArrowUp size={24} />
+              </button>
+            )}
+          </>
+        } />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { FiArrowDown, FiStar, FiAward, FiUsers } from "react-icons/fi";
 import { aggregateRating } from "../data/reviews";
 
@@ -136,12 +137,26 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
           <a
             href="#menu"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#menu');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
             className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold uppercase tracking-wider rounded-lg hover:from-primary-dark hover:to-secondary-dark transition-all duration-300 transform hover:scale-105 shadow-xl border-0"
           >
             View Menu
           </a>
           <a
             href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector('#contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
             className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold uppercase tracking-wider rounded-lg hover:from-primary-dark hover:to-secondary-dark transition-all duration-300 transform hover:scale-105 shadow-xl group"
           >
             <span className="flex items-center gap-2">

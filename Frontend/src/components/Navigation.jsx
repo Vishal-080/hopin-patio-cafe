@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { FiMenu, FiX } from 'react-icons/fi'
 
 const Navigation = () => {
@@ -53,23 +54,26 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-            <button
+              <a
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href);
+                }}
                 className="text-cafe-dark hover:text-cafe-teal hover:scale-105 transition-all duration-300 font-medium text-sm uppercase tracking-wider relative group"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-primary transition-all duration-300 group-hover:w-full"></span>
-              </button>
+              </a>
             ))}
             {/* Reserve Now CTA */}
-            <a
-              href="#contact"
-              onClick={() => scrollToSection('#contact')}
+            <Link
+              to="/#contact"
               className="px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white font-semibold uppercase tracking-wider rounded-lg hover:from-primary-dark hover:to-secondary-dark transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               Reserve Now
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -93,18 +97,27 @@ const Navigation = () => {
         <div className="md:hidden bg-white/98 backdrop-blur-md border-t border-cafe-light">
           <div className="px-4 pt-2 pb-4 space-y-2">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href);
+                  setIsMobileMenuOpen(false);
+                }}
                 className="block w-full text-left px-4 py-3 text-cafe-dark hover:text-cafe-teal hover:bg-cafe-cream rounded-lg transition-colors duration-300 font-medium uppercase tracking-wider"
               >
                 {item.name}
-              </button>
+              </a>
             ))}
             {/* Mobile Reserve CTA */}
             <a
               href="#contact"
-              onClick={() => scrollToSection('#contact')}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('#contact');
+                setIsMobileMenuOpen(false);
+              }}
               className="block w-full px-4 py-3 bg-teal-primary text-white font-semibold uppercase tracking-wider rounded-lg hover:bg-teal-secondary hover:text-white transition-all duration-300 text-center mt-2"
             >
               Reserve Now
