@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import api from '../services/api';
+<<<<<<< Updated upstream
 import { MapPin, Phone, Mail } from 'react-icons/fi';
+=======
+import { MapPinIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
+>>>>>>> Stashed changes
 
 const Contact = () => {
   const [contactForm, setContactForm] = useState({
@@ -159,17 +163,29 @@ const Contact = () => {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center">
+<<<<<<< Updated upstream
             <MapPin className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
+=======
+            <MapPinIcon className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
+>>>>>>> Stashed changes
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Location</h4>
             <p className="text-gray-600">123 Cafe Street<br />Coffee City, CC 12345</p>
           </div>
           <div className="text-center">
+<<<<<<< Updated upstream
             <Phone className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
+=======
+            <PhoneIcon className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
+>>>>>>> Stashed changes
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Phone</h4>
             <p className="text-gray-600">(555) 123-4567</p>
           </div>
           <div className="text-center">
+<<<<<<< Updated upstream
             <Mail className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
+=======
+            <EnvelopeIcon className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
+>>>>>>> Stashed changes
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Email</h4>
             <p className="text-gray-600">hello@yourcafe.com</p>
           </div>

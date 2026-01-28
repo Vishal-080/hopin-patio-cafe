@@ -1,0 +1,59 @@
+{"level":"info","message":"Server running on port 3001 in development mode","service":"cafe-backend","timestamp":"2026-01-27T10:00:06.128Z"}
+{"level":"info","message":"Health check available at: http://localhost:3001/health","service":"cafe-backend","timestamp":"2026-01-27T10:00:06.131Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T10:00:06.166Z"}
+{"level":"info","message":"SIGTERM received. Shutting down gracefully...","service":"cafe-backend","timestamp":"2026-01-27T10:00:12.334Z"}
+{"level":"info","message":"Server running on port 3001 in development mode","service":"cafe-backend","timestamp":"2026-01-27T10:00:13.832Z"}
+{"level":"info","message":"Health check available at: http://localhost:3001/health","service":"cafe-backend","timestamp":"2026-01-27T10:00:13.834Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T10:00:13.871Z"}
+{"level":"info","message":"::ffff:192.168.65.1 - - [27/Jan/2026:10:00:57 +0000] \"GET /health HTTP/1.1\" 200 123 \"-\" \"curl/8.7.1\"","service":"cafe-backend","timestamp":"2026-01-27T10:00:57.650Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"cafe-backend","timestamp":"2026-01-27T10:33:05.090Z"}
+{"level":"info","message":"SIGTERM received. Shutting down gracefully...","service":"cafe-backend","timestamp":"2026-01-27T10:33:05.671Z"}
+{"level":"info","message":"Server running on port 3001 in development mode","service":"cafe-backend","timestamp":"2026-01-27T10:55:51.533Z"}
+{"level":"info","message":"Health check available at: http://localhost:3001/health","service":"cafe-backend","timestamp":"2026-01-27T10:55:51.536Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T10:55:51.579Z"}
+{"level":"info","message":"SIGTERM received. Shutting down gracefully...","service":"cafe-backend","timestamp":"2026-01-27T10:59:05.087Z"}
+{"level":"info","message":"Server running on port 3001 in development mode","service":"cafe-backend","timestamp":"2026-01-27T10:59:06.561Z"}
+{"level":"info","message":"Health check available at: http://localhost:3001/health","service":"cafe-backend","timestamp":"2026-01-27T10:59:06.563Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T10:59:06.599Z"}
+{"level":"info","message":"SIGTERM received. Shutting down gracefully...","service":"cafe-backend","timestamp":"2026-01-27T11:00:13.870Z"}
+{"level":"info","message":"Server running on port 3000 in development mode","service":"cafe-backend","timestamp":"2026-01-27T11:00:21.002Z"}
+{"level":"info","message":"Health check available at: http://localhost:3000/health","service":"cafe-backend","timestamp":"2026-01-27T11:00:21.005Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T11:00:21.047Z"}
+{"level":"info","message":"::ffff:192.168.65.1 - - [27/Jan/2026:11:01:18 +0000] \"GET /health HTTP/1.1\" 200 123 \"-\" \"curl/8.7.1\"","service":"cafe-backend","timestamp":"2026-01-27T11:01:18.364Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"cafe-backend","timestamp":"2026-01-27T11:10:11.882Z"}
+{"level":"info","message":"SIGTERM received. Shutting down gracefully...","service":"cafe-backend","timestamp":"2026-01-27T11:10:12.435Z"}
+{"level":"info","message":"Server running on port 3001 in production mode","service":"cafe-backend","timestamp":"2026-01-27T11:10:14.952Z"}
+{"level":"info","message":"Health check available at: http://localhost:3001/health","service":"cafe-backend","timestamp":"2026-01-27T11:10:14.953Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T11:10:15.004Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"cafe-backend","timestamp":"2026-01-27T11:24:25.814Z"}
+{"level":"info","message":"SIGTERM received. Shutting down gracefully...","service":"cafe-backend","timestamp":"2026-01-27T11:24:28.116Z"}
+{"level":"info","message":"Server running on port 3000 in development mode","service":"cafe-backend","timestamp":"2026-01-27T11:24:33.048Z"}
+{"level":"info","message":"Health check available at: http://localhost:3000/health","service":"cafe-backend","timestamp":"2026-01-27T11:24:33.051Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T11:24:33.114Z"}
+{"level":"info","message":"::ffff:192.168.65.1 - - [27/Jan/2026:11:42:10 +0000] \"GET /api/v1/menu/categories HTTP/1.1\" 200 521 \"http://localhost:5173/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"","service":"cafe-backend","timestamp":"2026-01-27T11:42:10.277Z"}
+{"level":"info","message":"::ffff:192.168.65.1 - - [27/Jan/2026:11:42:10 +0000] \"GET /api/v1/menu/items HTTP/1.1\" 200 - \"http://localhost:5173/\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"","service":"cafe-backend","timestamp":"2026-01-27T11:42:10.301Z"}
+{"level":"info","message":"Server running on port 3000 in development mode","service":"cafe-backend","timestamp":"2026-01-27T11:48:03.708Z"}
+{"level":"info","message":"Health check available at: http://localhost:3000/health","service":"cafe-backend","timestamp":"2026-01-27T11:48:03.714Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T11:48:03.801Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"cafe-backend","timestamp":"2026-01-27T11:51:37.037Z"}
+{"level":"info","message":"SIGTERM received. Shutting down gracefully...","service":"cafe-backend","timestamp":"2026-01-27T11:51:37.040Z"}
+{"level":"info","message":"Server running on port 3000 in development mode","service":"cafe-backend","timestamp":"2026-01-27T11:51:39.418Z"}
+{"level":"info","message":"Health check available at: http://localhost:3000/health","service":"cafe-backend","timestamp":"2026-01-27T11:51:39.420Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T11:51:39.462Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"cafe-backend","timestamp":"2026-01-27T12:09:48.346Z"}
+{"level":"info","message":"SIGTERM received. Shutting down gracefully...","service":"cafe-backend","timestamp":"2026-01-27T12:09:48.368Z"}
+{"level":"info","message":"Server running on port 3000 in development mode","service":"cafe-backend","timestamp":"2026-01-27T12:09:50.664Z"}
+{"level":"info","message":"Health check available at: http://localhost:3000/health","service":"cafe-backend","timestamp":"2026-01-27T12:09:50.667Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T12:09:50.720Z"}
+{"level":"info","message":"::ffff:192.168.65.1 - - [27/Jan/2026:12:11:35 +0000] \"GET /health HTTP/1.1\" 200 123 \"-\" \"curl/8.7.1\"","service":"cafe-backend","timestamp":"2026-01-27T12:11:35.171Z"}
+{"level":"info","message":"::ffff:192.168.65.1 - - [27/Jan/2026:12:11:56 +0000] \"GET /api/v1/menu/categories HTTP/1.1\" 200 521 \"-\" \"curl/8.7.1\"","service":"cafe-backend","timestamp":"2026-01-27T12:11:56.390Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"cafe-backend","timestamp":"2026-01-27T12:16:50.223Z"}
+{"level":"info","message":"SIGTERM received. Shutting down gracefully...","service":"cafe-backend","timestamp":"2026-01-27T12:16:50.847Z"}
+{"level":"info","message":"Server running on port 3001 in production mode","service":"cafe-backend","timestamp":"2026-01-27T12:16:53.650Z"}
+{"level":"info","message":"Health check available at: http://localhost:3001/health","service":"cafe-backend","timestamp":"2026-01-27T12:16:53.653Z"}
+{"level":"info","message":"MongoDB Connected: mongodb","service":"cafe-backend","timestamp":"2026-01-27T12:16:53.729Z"}
+{"level":"info","message":"::ffff:192.168.65.1 - - [27/Jan/2026:12:39:49 +0000] \"GET /api/v1 HTTP/1.1\" 404 81 \"-\" \"curl/8.7.1\"","service":"cafe-backend","timestamp":"2026-01-27T12:39:49.489Z"}
+{"level":"info","message":"::ffff:192.168.65.1 - - [27/Jan/2026:12:42:29 +0000] \"GET /api/v1 HTTP/1.1\" 404 81 \"-\" \"curl/8.7.1\"","service":"cafe-backend","timestamp":"2026-01-27T12:42:29.106Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"cafe-backend","timestamp":"2026-01-27T14:39:25.779Z"}
+{"level":"info","message":"MongoDB reconnected","service":"cafe-backend","timestamp":"2026-01-27T14:39:35.335Z"}
+{"level":"info","message":"::ffff:192.168.65.1 - - [27/Jan/2026:16:55:39 +0000] \"GET /api/v1/auth/profile HTTP/1.1\" 401 83 \"-\" \"curl/8.7.1\"","service":"cafe-backend","timestamp":"2026-01-27T16:55:39.721Z"}
