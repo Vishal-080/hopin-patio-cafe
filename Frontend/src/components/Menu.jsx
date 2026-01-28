@@ -1,12 +1,7 @@
-<<<<<<< Updated upstream
 import React, { useState } from 'react'
-import { FiStar, FiPhone, FiShoppingCart, FiClock } from 'react-icons/fi'
-=======
-
 import { useQuery } from '@tanstack/react-query';
 import api from '../services/api';
 import { ClockIcon } from '@heroicons/react/24/outline';
->>>>>>> Stashed changes
 
 const Menu = () => {
   const { data: categories, isLoading: categoriesLoading } = useQuery({
@@ -91,8 +86,26 @@ const Menu = () => {
                   </div>
                 ))}
             </div>
+<<<<<<< HEAD
           </div>
         ))}
+=======
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-16">
+          <p className="text-teal-dark mb-6 drop-shadow-sm">
+            Visit us to experience our full menu and seasonal specials
+          </p>
+          <a
+            href="#contact"
+            className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold uppercase tracking-wider rounded-lg hover:from-primary-dark hover:to-secondary-dark transition-all duration-300 transform hover:scale-105 shadow-xl"
+          >
+            Reserve a Table
+          </a>
+        </div>
+>>>>>>> master
       </div>
     </section>
   );
