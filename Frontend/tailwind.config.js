@@ -24,7 +24,15 @@ export default {
         'warm-dark': '#92400e',   // Amber-800
         'glass': 'rgba(255,255,255,0.1)',
         'glass-dark': 'rgba(0,0,0,0.1)',
-
+        
+        // Cafe Theme Colors
+        'cafe-gold': '#D4AF37',     // Gold accent
+        'cafe-brown': '#8B4513',     // Rich brown
+        'cafe-teal': '#14B8A6',     // Teal accent
+        'cafe-dark': '#1F2937',     // Dark gray for text
+        'cafe-cream': '#FFF8E7',     // Cream background
+        'cafe-light': '#F3F4F6',     // Light gray for borders
+      },
       fontFamily: {
         'serif': ['Playfair Display', 'serif'],
         'sans': ['Inter', 'sans-serif'],
@@ -63,5 +71,4 @@ export default {
     },
   },
   plugins: [],
-}
 }

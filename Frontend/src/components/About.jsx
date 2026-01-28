@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { FiCoffee, FiHeart, FiUsers } from 'react-icons/fi'
 
 const About = () => {
