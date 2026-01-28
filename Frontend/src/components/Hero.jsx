@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FiArrowDown, FiStar, FiAward, FiUsers } from "react-icons/fi";
+import { FiArrowDown, FiStar } from "react-icons/fi";
 import { aggregateRating } from "../data/reviews";
 
 const Hero = () => {

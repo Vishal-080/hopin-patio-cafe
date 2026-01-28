@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { FiInstagram, FiFacebook, FiTwitter } from 'react-icons/fi'
 
 const Footer = () => {
