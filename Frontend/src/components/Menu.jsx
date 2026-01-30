@@ -86,12 +86,8 @@ const Menu = () => {
                   </div>
                 ))}
             </div>
-<<<<<<< HEAD
           </div>
         ))}
-=======
-          ))}
-        </div>
 
         {/* CTA */}
         <div className="text-center mt-16">
@@ -105,7 +101,6 @@ const Menu = () => {
             Reserve a Table
           </a>
         </div>
->>>>>>> master
       </div>
     </section>
   );
