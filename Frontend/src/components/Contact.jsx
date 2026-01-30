@@ -164,17 +164,18 @@ const Contact = () => {
             <p className="text-gray-600">123 Cafe Street<br />Coffee City, CC 12345</p>
           </div>
           <div className="text-center">
-<PhoneIcon className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
+            <PhoneIcon className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Phone</h4>
             <p className="text-gray-600">(555) 123-4567</p>
           </div>
           <div className="text-center">
-<EnvelopeIcon className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
+            <EnvelopeIcon className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
             <h4 className="text-lg font-semibold text-gray-800 mb-2">Email</h4>
             <p className="text-gray-600">hello@yourcafe.com</p>
           </div>
         </div>
       </div>
+      
     </section>
   );
 };
