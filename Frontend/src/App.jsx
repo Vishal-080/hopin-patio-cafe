@@ -50,7 +50,7 @@ function App() {
             {showScrollTop && (
               <button
                 onClick={scrollToTop}
-                className="fixed bottom-8 right-8 z-40 bg-cafe-gold text-cafe-brown p-4 rounded-full shadow-lg hover:bg-cafe-brown hover:text-white transition-all duration-300 transform hover:scale-110"
+                className="btn-hover fixed bottom-8 right-8 z-40 bg-teal-accent text-white p-4 rounded-full shadow-lg"
                 aria-label="Scroll to top"
               >
                 <FiArrowUp size={24} />
