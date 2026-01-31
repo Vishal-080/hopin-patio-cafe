@@ -45,7 +45,7 @@ const About = () => {
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-forest-primary mb-4 lg:mb-6 leading-tight">
               About
               <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-teal-accent mt-2">
-                HOPIN PATIO
+                Hopin-Patio Cafe
               </span>
             </h2>
             <div className="w-16 h-1 sm:w-20 sm:h-1 bg-gradient-to-r from-teal-accent to-forest-primary mx-auto mb-6 lg:mb-8 rounded-full"></div>
@@ -83,22 +83,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start">
-              {features.map((feature, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveFeature(index)}
-                  className={`btn-hover px-4 py-2 sm:px-6 sm:py-3 min-h-[44px] rounded-full font-medium text-sm sm:text-base fade-in stagger-${Math.min(index + 2, 6)} ${
-                    activeFeature === index
-                      ? 'bg-gradient-to-r from-forest-primary to-teal-accent text-white shadow-lg'
-                      : 'bg-white/60 text-nature-dark/70 hover:bg-white/80 hover:shadow-md'
-                  }`}
-                >
-                  <span className="mr-2">{feature.icon}</span>
-                  {feature.title}
-                </button>
-              ))}
-            </div>
+            
           </div>
 
           <div className="lg:col-span-5 space-y-6 lg:space-y-8">
@@ -121,6 +106,38 @@ const About = () => {
             </div>
           </div>
         </div>
+        <div className="flex justify-center items-center gap-2 sm:gap-3 w-full mb-8">
+              {features.map((feature, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveFeature(index)}
+                  className={`btn-hover px-8 py-6 sm:px-4 sm:py-4 min-h-[44px] rounded-full font-medium text-sm sm:text-base transition-all duration-300 whitespace-nowrap transform hover:scale-105 ${
+                    activeFeature === index
+                      ? 'bg-gradient-to-r from-forest-primary to-teal-accent text-white shadow-lg scale-105'
+                      : 'bg-white/60 text-nature-dark/70 hover:bg-white/80 hover:shadow-md'
+                  }`}
+                >
+                  <div className="mr-2">{feature.icon}</div>
+                  {feature.title}
+                </button>
+              ))}
+            </div>
+
+            {/* Active Feature Description */}
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 sm:p-8 relative overflow-hidden fade-in max-w-4xl mx-auto mb-8">
+              <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-teal-accent/20 to-transparent rounded-bl-full"></div>
+              <div className="relative">
+                <div className="flex items-center mb-4">
+                  <span className="text-3xl sm:text-4xl mr-3">{features[activeFeature].icon}</span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-forest-primary">
+                    {features[activeFeature].title}
+                  </h3>
+                </div>
+                <p className="text-base sm:text-lg text-nature-dark/80 leading-relaxed">
+                  {features[activeFeature].description}
+                </p>
+              </div>
+            </div>
 
         <div className="bg-gradient-to-r from-forest-primary to-teal-accent rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10"></div>
