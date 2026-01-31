@@ -6,7 +6,7 @@ const About = () => {
   const features = [
     {
       title: "Premium Coffee",
-      description: "Ethically sourced beans roasted to perfection",
+      description: "pure Vegetarian beans roasted to perfection",
       icon: "☕"
     },
     {
@@ -15,9 +15,9 @@ const About = () => {
       icon: "🌿"
     },
     {
-      title: "Fresh Pastries",
-      description: "Locally-made treats baked daily",
-      icon: "🥐"
+      title: "Pet Friendly",
+      description: "Pet-friendly treats available daily",
+      icon: "🐾"
     },
     {
       title: "Expert Baristas",
