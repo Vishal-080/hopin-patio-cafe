@@ -91,6 +91,7 @@ Thumbs.db
 # IDE files
 .vscode/
 .idea/
+*/.sisyphus/
 .sisyphus/
 *.swp
 *.swo
