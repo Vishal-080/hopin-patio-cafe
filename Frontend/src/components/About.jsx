@@ -6,7 +6,7 @@ const About = () => {
   const features = [
     {
       title: "Premium Coffee",
-      description: "pure Vegetarian beans roasted to perfection",
+      description: "Premium quality beans roasted to perfection",
       icon: "☕"
     },
     {
@@ -16,7 +16,7 @@ const About = () => {
     },
     {
       title: "Pet Friendly",
-      description: "Pet-friendly treats available daily",
+      description: "Pet-friendly Cafe",
       icon: "🐾"
     },
     {
@@ -51,7 +51,7 @@ const About = () => {
             <div className="w-16 h-1 sm:w-20 sm:h-1 bg-gradient-to-r from-teal-accent to-forest-primary mx-auto mb-6 lg:mb-8 rounded-full"></div>
           </div>
           <p className="text-lg sm:text-xl md:text-2xl text-nature-dark/80 max-w-3xl mx-auto font-light leading-relaxed px-4">
-            Discover our story of passion, quality, and exceptional coffee experiences in our urban oasis
+            Discover our story of passion, quality, and exceptional coffee experiences in the heart of <b>Indore.</b>
           </p>
         </div>
 
@@ -67,18 +67,19 @@ const About = () => {
                 
                 <div className="space-y-4 lg:space-y-6 text-nature-dark/80">
                   <p className="text-base sm:text-lg leading-relaxed">
-                    Founded with a passion for exceptional coffee and warm hospitality, HOPIN PATIO 
-                    has been serving the community with premium coffee experiences since our inception.
+                    Founded with a passion for exceptional Coffee and delicious Food.
+                    <br/>
+                    <br/>
+                    <b>Hopin-Patio Cafe</b> has been serving the people of <b>Indore</b> with premium coffee experiences since our inception.
                   </p>
                   <p className="text-base sm:text-lg leading-relaxed">
                     Our elegant patio setting provides the perfect atmosphere for both intimate 
-                    conversations and productive work sessions, all while enjoying our carefully 
-                    curated selection of artisan coffees and fresh pastries.
+                    conversations and productive work sessions, all while enjoying our <b>artisan Coffees</b> and <b>fresh Food.</b>
                   </p>
-                  <p className="text-base sm:text-lg leading-relaxed">
+                  {/* <p className="text-base sm:text-lg leading-relaxed">
                     We believe that great coffee brings people together, and our mission is to 
                     create memorable moments for every guest who walks through our doors.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -146,13 +147,16 @@ const About = () => {
               Why Choose HOPIN PATIO?
             </h3>
             
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-              {[
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">{
+                [{
+                  icon: "🥗",
+                  title: "Pure Vegetarian",
+                  description: "Premium quality veggies from sustainable farms"
+                },
                 {
-                  icon: "🌱",
-                  title: "Ethically Sourced",
-                  description: "Premium coffee beans from sustainable farms",
-                  highlight: true
+                  icon: "🐾",
+                  title: "Pet Friendly",
+                  description: "Pet-friendly Cafe"
                 },
                 {
                   icon: "🏡",
@@ -160,24 +164,19 @@ const About = () => {
                   description: "Perfect outdoor setting with comfortable seating"
                 },
                 {
-                  icon: "🍞",
-                  title: "Fresh & Local",
-                  description: "Daily baked pastries from local artisans"
-                },
-                {
                   icon: "👥",
                   title: "Expert Staff",
                   description: "Friendly baristas passionate about coffee"
                 },
                 {
+                  icon: "🌺",
+                  title: "Relaxing Ambiance",
+                  description: "Peaceful vibes for focus and conversation"
+                },
+                {
                   icon: "💻",
                   title: "Work Friendly",
                   description: "High-speed WiFi and power outlets available"
-                },
-                {
-                  icon: "🌺",
-                  title: "Relaxing Ambiance",
-                  description: "Peaceful environment for focus and conversation"
                 }
               ].map((item, index) => (
                 <div 
@@ -192,13 +191,6 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        <div className="mt-12 lg:mt-20 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 min-h-[48px] bg-gradient-to-r from-sage-light to-teal-accent text-forest-primary font-bold rounded-full hover:shadow-lg transform transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer touch-manipulation text-sm sm:text-base">
-            <span>Experience the Difference</span>
-            <span className="text-lg sm:text-xl">→</span>
           </div>
         </div>
       </div>
