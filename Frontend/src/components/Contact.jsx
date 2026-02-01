@@ -56,7 +56,7 @@ const Contact = () => {
             Find Your Way to Us
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 fade-in stagger-2">
-            Whether you're planning a visit, have questions about our forest-inspired space, 
+            Whether you're planning a visit, have questions about our nature-inspired space, 
             or simply want to share your experience, we're here to listen
           </p>
         </div>
@@ -66,7 +66,7 @@ const Contact = () => {
             <div className="relative">
               <h3 className="text-2xl sm:text-3xl font-bold text-forest-primary mb-6 lg:mb-8 flex items-center">
                 <span className="w-1 h-6 sm:h-8 bg-teal-accent mr-3 sm:mr-4 rounded-full"></span>
-                Visit Our Forest
+                Visit Us
               </h3>
               
               <div className="space-y-6 lg:space-y-8">
@@ -74,28 +74,27 @@ const Contact = () => {
                   {
                     icon: '📍',
                     title: 'Location',
-                    content: '123 Patio Street, Coffee City, CC 12345',
+                    content: '17/2, New Palasia, Indore, Madhya Pradesh 452001',
                     delay: 'delay-75'
                   },
                   {
                     icon: '📞',
                     title: 'Call Us',
-                    content: '(555) 123-4567',
+                    content: '+91 7339733983',
                     delay: 'delay-100'
                   },
                   {
                     icon: '✉️',
                     title: 'Email',
-                    content: 'hello@hopinpatio.com',
+                    content: 'contactus@hopinpatio.com',
                     delay: 'delay-150'
                   },
                   {
                     icon: '🌿',
-                    title: 'Forest Hours',
+                    title: 'Open Hours',
                     content: (
                       <>
-                        Monday - Friday: 7:00 AM - 8:00 PM<br />
-                        Saturday - Sunday: 8:00 AM - 9:00 PM
+                        Monday - Sunday: 1:00 PM - 11:30 PM
                       </>
                     ),
                     delay: 'delay-200'
