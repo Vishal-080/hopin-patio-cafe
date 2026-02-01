@@ -13,7 +13,7 @@ const Navigation = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const stickyNavOffset = 80;
+      const stickyNavOffset = 64;
       const elementPosition = element.getBoundingClientRect().top;
       const adjustedScrollPosition = elementPosition + window.pageYOffset - stickyNavOffset;
 
@@ -71,14 +71,14 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-sage-light/20' 
-        : 'bg-white/90 backdrop-blur-sm shadow-sm'
+        ? 'bg-white shadow-md border-b border-sage-light/30' 
+        : 'bg-white shadow-sm border-b border-sage-light/10'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
+        <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-forest-primary to-teal-accent bg-clip-text text-transparent">
-              HOPIN PATIO
+              HOPIN PATIO CAFE
             </h1>
           </div>
 
@@ -113,7 +113,7 @@ const Navigation = () => {
       <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
         isMenuOpen ? 'max-h-screen' : 'max-h-0'
       }`}>
-        <div className="px-4 pt-2 pb-6 space-y-2 bg-white/95 backdrop-blur-md shadow-xl border-t border-sage-light/20 max-h-[70vh] overflow-y-auto">
+        <div className="px-4 pt-2 pb-6 space-y-2 bg-white shadow-xl border-t border-sage-light/20 max-h-[70vh] overflow-y-auto">
           {navLinks.map((link) => (
             <button
               key={link.id}
