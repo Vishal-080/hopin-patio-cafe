@@ -29,7 +29,7 @@ const Navigation = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'about', 'menu', 'gallery', 'contact', 'newsletter'];
+      const sections = ['home', 'about', 'menu', 'gallery', 'contact'];
       const currentScrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -55,8 +55,7 @@ const Navigation = () => {
     { id: 'about', label: 'About' },
     { id: 'menu', label: 'Menu' },
     { id: 'gallery', label: 'Gallery' },
-    { id: 'contact', label: 'Contact' },
-    { id: 'newsletter', label: 'Newsletter' }
+    { id: 'contact', label: 'Contact' }
   ];
 
   const getNavLinkClasses = (sectionId) => {
