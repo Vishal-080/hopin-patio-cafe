@@ -4,12 +4,13 @@ import Navigation from './components/Navigation'
 
 import Hero from './components/Hero'
 import About from './components/About'
-import Menu from './components/Menu'
+
 import Reviews from './components/Reviews'
 import GoogleReviews from './components/GoogleReviews'
 import Gallery from './components/Gallery'
+import MenuImageGallery from './components/MenuImageGallery'
 import Contact from './components/Contact'
-import Newsletter from './components/Newsletter'
+
 import Footer from './components/Footer'
 import { FiArrowUp } from 'react-icons/fi'
 import { initAnalytics } from './utils/analytics'
@@ -53,12 +54,11 @@ function App() {
               <div className="relative">
                 <WidthWrapper>
                   <About />
-                  <Menu />
+                  <MenuImageGallery />
                   <Reviews />
                   <GoogleReviews />
                   <Gallery />
                   <Contact />
-                  <Newsletter />
                 </WidthWrapper>
               </div>
             </div>
