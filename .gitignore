@@ -1,19 +1,33 @@
 # Dependencies
-Frontend/node_modules/
-Frontend/npm-debug.log*
-Frontend/yarn-debug.log*
-Frontend/yarn-error.log*
-Backend/node_modules/
+node_modules/
+*/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build outputs
+dist/
+build/
+*/dist/
+*/build/
+.next/
+.nuxt/
+.vuepress/dist/
+
 # Environment variables
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
 
 # Logs
 logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Runtime data
 pids
@@ -24,60 +38,51 @@ pids
 # Coverage directory used by tools like istanbul
 coverage/
 *.lcov
+.nyc_output/
 
-# nyc test coverage
-.nyc_output
-
-# Dependency directories
-Frontend/node_modules/
-Frontend/jspm_packages/
-
-# Optional npm cache directory
+# Package manager files
 .npm
-
-# Optional eslint cache
-.eslintcache
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
 .yarn-integrity
+.pnp*
+.pnp.js
 
-# dotenv environment variables file
-.env
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
-
-# next.js build output
-.next
-
-# nuxt.js build output
-.nuxt
-
-# vuepress build output
-.vuepress/dist
-
-# Serverless directories
-.serverless
-
-# FuseBox cache
+# Cache directories
+.cache/
+.parcel-cache/
 .fusebox/
+.eslintcache
+.stylelintcache
 
-# DynamoDB Local files
-.dynamodb/
+# Build artifacts
+*.tgz
+*.tar.gz
 
-# TernJS port file
-.tern-port
+# Testing
+test-results/
+playwright-report/
+junit.xml
 
-# Stores VSCode versions used for testing VSCode extensions
-.vscode-test
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
 
-# Uploads and temp files
-uploads/temp/
+# Uploads and user-generated content
+uploads/
 uploads/*/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+db/
+
+# Serverless
+.serverless/
+
+# DynamoDB Local
+.dynamodb/
 
 # OS generated files
 .DS_Store
@@ -87,8 +92,9 @@ uploads/*/
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# IDE files
+# IDE and editor files
 .vscode/
 .idea/
 */.sisyphus/
@@ -96,7 +102,65 @@ Thumbs.db
 *.swp
 *.swo
 *~
+.sublime-project
+.sublime-workspace
 
-# Test files
-test-results/
-playwright-report/
+# Node.js specific
+.nyc_output/
+.grunt
+bower_components
+.lock-wscript
+
+# Yarn specific
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Vite specific
+.vite/
+
+# React specific
+.eslintcache
+
+# Backend specific
+node_modules/
+logs/
+!logs/.gitkeep
+uploads/
+!uploads/.gitkeep
+
+# MongoDB
+*.data
+
+# Session files
+sessions/
+*.session
+
+# SSL certificates
+*.pem
+*.key
+*.crt
+*.csr
+
+# Docker
+.dockerignore
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Kubernetes
+*.kubeconfig
+
+# Local development
+.local
+.localdev
+
+# Backup files
+*.bak
+*.backup
+*.old
