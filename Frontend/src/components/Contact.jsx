@@ -1,177 +1,248 @@
 import React, { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import api from '../services/api';
-import { MapPinIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
 const Contact = () => {
-  const [contactForm, setContactForm] = useState({
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
-    message: '',
+    message: ''
   });
+  const [touched, setTouched] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
-  const [reservationForm, setReservationForm] = useState({
-    date: '',
-    time: '',
-    partySize: '',
-    specialRequests: '',
-  });
-
-  const contactMutation = useMutation({
-    mutationFn: (contactData) => api.createContact && api.createContact(contactData),
-    onSuccess: () => {
-      alert('Thank you for your message! We\'ll get back to you soon.');
-      setContactForm({ name: '', email: '', phone: '', message: '' });
-    },
-    onError: (error) => {
-      alert(error.response?.data?.error?.message || 'Failed to send message');
-    },
-  });
-
-  const reservationMutation = useMutation({
-    mutationFn: (reservationData) => api.createReservation(reservationData),
-    onSuccess: () => {
-      alert('Reservation request submitted! We\'ll confirm shortly.');
-      setReservationForm({ date: '', time: '', partySize: '', specialRequests: '' });
-    },
-    onError: (error) => {
-      alert(error.response?.data?.error?.message || 'Failed to submit reservation');
-    },
-  });
-
-  const handleContactSubmit = (e) => {
-    e.preventDefault();
-    contactMutation.mutate(contactForm);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (touched[name]) {
+      setTouched(prev => ({ ...prev, [name]: false }));
+    }
   };
 
-  const handleReservationSubmit = (e) => {
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+  };
+
+  const validateField = (name, value) => {
+    if (name === 'name') return value.trim().length >= 2;
+    if (name === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    if (name === 'message') return value.trim().length >= 10;
+    return true;
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    reservationMutation.mutate(reservationForm);
+    const allTouched = { name: true, email: true, message: true };
+    setTouched(allTouched);
+    
+    const isValid = Object.keys(formData).every(key => validateField(key, formData[key]));
+    if (isValid) {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 3000);
+      setFormData({ name: '', email: '', message: '' });
+      setTouched({});
+    }
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Get in Touch</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Have questions or want to make a reservation? We'd love to hear from you
+    <section id="contact" className="relative py-16 lg:py-24 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-sage-light/20 via-cafe-cream to-teal-accent/10"></div>
+      
+      <div className="absolute top-10 left-10 w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-forest-primary/5 blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-32 h-32 sm:w-48 sm:h-48 rounded-full bg-teal-accent/10 blur-3xl"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 lg:mb-20 fade-in">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-forest-primary mb-4 lg:mb-6 tracking-tight animate-element">
+            Find Your Way to Us
+          </h2>
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 fade-in stagger-2">
+            Whether you're planning a visit, have questions about our nature-inspired space, 
+            or simply want to share your experience, we're here to listen
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">Send us a Message</h3>
-            <form onSubmit={handleContactSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  value={contactForm.name}
-                  onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-gold"
-                  required
-                />
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  value={contactForm.email}
-                  onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-gold"
-                  required
-                />
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div className="lg:col-span-5 fade-in stagger-1">
+            <div className="relative">
+              <h3 className="text-2xl sm:text-3xl font-bold text-forest-primary mb-6 lg:mb-8 flex items-center">
+                <span className="w-1 h-6 sm:h-8 bg-teal-accent mr-3 sm:mr-4 rounded-full"></span>
+                Visit Us
+              </h3>
+              
+              <div className="space-y-6 lg:space-y-8">
+                {[
+                  {
+                    icon: '📍',
+                    title: 'Location',
+                    content: '17/2, New Palasia, Indore, Madhya Pradesh 452001',
+                    delay: 'delay-75'
+                  },
+                  {
+                    icon: '📞',
+                    title: 'Call Us',
+                    content: '+91 7339733983',
+                    delay: 'delay-100'
+                  },
+                  {
+                    icon: '✉️',
+                    title: 'Email',
+                    content: 'contactus@hopinpatio.com',
+                    delay: 'delay-150'
+                  },
+                  {
+                    icon: '🌿',
+                    title: 'Open Hours',
+                    content: (
+                      <>
+                        Monday - Sunday: 1:00 PM - 11:30 PM
+                      </>
+                    ),
+                    delay: 'delay-200'
+                  }
+                ].map((item, index) => (
+                  <div 
+                    key={index} 
+                    className={`group hover-lift fade-in stagger-${Math.min(index + 3, 6)}`}
+                  >
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-300">
+                        {item.icon}
+                      </span>
+                      <div>
+                        <h4 className="font-semibold text-forest-primary text-base sm:text-lg mb-2">
+                          {item.title}
+                        </h4>
+                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                          {item.content}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <input
-                type="tel"
-                placeholder="Your Phone"
-                value={contactForm.phone}
-                onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-gold"
-              />
-              <textarea
-                placeholder="Your Message"
-                rows={4}
-                value={contactForm.message}
-                onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-gold"
-                required
-              />
-              <button
-                type="submit"
-                disabled={contactMutation.isLoading}
-                className="w-full bg-cafe-gold text-white py-3 rounded-lg font-semibold hover:bg-cafe-gold/90 transition-colors disabled:opacity-50"
-              >
-                {contactMutation.isLoading ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
+            </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">Make a Reservation</h3>
-            <form onSubmit={handleReservationSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <input
-                  type="date"
-                  value={reservationForm.date}
-                  onChange={(e) => setReservationForm({ ...reservationForm, date: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-gold"
-                  required
-                />
-                <input
-                  type="time"
-                  value={reservationForm.time}
-                  onChange={(e) => setReservationForm({ ...reservationForm, time: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-gold"
-                  required
-                />
-                <select
-                  value={reservationForm.partySize}
-                  onChange={(e) => setReservationForm({ ...reservationForm, partySize: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-gold"
-                  required
+          <div className="lg:col-span-7 fade-in stagger-2">
+            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl shadow-xl lg:shadow-2xl p-6 sm:p-8 lg:p-10 border border-sage-light/20 hover-card">
+              <div className="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-teal-accent/20 to-transparent rounded-bl-2xl sm:rounded-bl-3xl"></div>
+              
+              <h3 className="text-2xl sm:text-3xl font-bold text-forest-primary mb-6 lg:mb-8">
+                Leave a Message
+              </h3>
+              
+              {submitted && (
+                <div 
+                  className="mb-6 p-4 bg-teal-accent/10 border border-teal-accent/30 rounded-2xl flex items-center space-x-3 animate-pulse"
+                  role="alert"
+                  aria-live="polite"
                 >
-                  <option value="">Party Size</option>
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map((size) => (
-                    <option key={size} value={size}>
-                      {size} {size === 1 ? 'Guest' : 'Guests'}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <textarea
-                placeholder="Special Requests (optional)"
-                rows={3}
-                value={reservationForm.specialRequests}
-                onChange={(e) => setReservationForm({ ...reservationForm, specialRequests: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cafe-gold"
-              />
-              <button
-                type="submit"
-                disabled={reservationMutation.isLoading}
-                className="w-full bg-cafe-teal text-white py-3 rounded-lg font-semibold hover:bg-cafe-teal/90 transition-colors disabled:opacity-50"
-              >
-                {reservationMutation.isLoading ? 'Submitting...' : 'Request Reservation'}
-              </button>
-            </form>
-          </div>
-        </div>
+                  <span className="text-xl sm:text-2xl" aria-hidden="true">🌱</span>
+                  <p className="text-teal-accent font-medium text-sm sm:text-base">Message sent successfully! We'll respond within 24 hours.</p>
+                </div>
+              )}
+              
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-forest-primary mb-2">
+                    Your Name <span className="text-teal-accent">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full px-4 py-3 sm:px-5 sm:py-4 min-h-[48px] rounded-xl sm:rounded-2xl border-2 bg-cafe-cream/50 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-teal-accent/20 focus:border-teal-accent touch-manipulation ${
+                      touched.name && !validateField('name', formData.name) 
+                        ? 'border-red-400 bg-red-50' 
+                        : touched.name && validateField('name', formData.name)
+                        ? 'border-green-400 bg-green-50'
+                        : 'border-sage-light/30 hover:border-sage-light/60'
+                    }`}
+                    placeholder="Enter your full name"
+                    aria-required="true"
+                    aria-describedby={touched.name && !validateField('name', formData.name) ? 'name-error' : null}
+                    autoComplete="name"
+                  />
+                  {touched.name && !validateField('name', formData.name) && (
+                    <p id="name-error" className="text-sm text-red-500 mt-1 flex items-center" role="alert">
+                      <span className="mr-1" aria-hidden="true">⚠️</span> Name must be at least 2 characters
+                    </p>
+                  )}
+                </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <MapPinIcon className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Location</h4>
-            <p className="text-gray-600">123 Cafe Street<br />Coffee City, CC 12345</p>
-          </div>
-          <div className="text-center">
-            <PhoneIcon className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Phone</h4>
-            <p className="text-gray-600">(555) 123-4567</p>
-          </div>
-          <div className="text-center">
-            <EnvelopeIcon className="h-12 w-12 text-cafe-gold mx-auto mb-4" />
-            <h4 className="text-lg font-semibold text-gray-800 mb-2">Email</h4>
-            <p className="text-gray-600">hello@yourcafe.com</p>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-forest-primary mb-2">
+                    Email Address <span className="text-teal-accent">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full px-4 py-3 sm:px-5 sm:py-4 min-h-[48px] rounded-xl sm:rounded-2xl border-2 bg-cafe-cream/50 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-teal-accent/20 focus:border-teal-accent touch-manipulation ${
+                      touched.email && !validateField('email', formData.email) 
+                        ? 'border-red-400 bg-red-50' 
+                        : touched.email && validateField('email', formData.email)
+                        ? 'border-green-400 bg-green-50'
+                        : 'border-sage-light/30 hover:border-sage-light/60'
+                    }`}
+                    placeholder="your.email@example.com"
+                    aria-required="true"
+                    aria-describedby={touched.email && !validateField('email', formData.email) ? 'email-error' : null}
+                    autoComplete="email"
+                  />
+                  {touched.email && !validateField('email', formData.email) && (
+                    <p id="email-error" className="text-sm text-red-500 mt-1 flex items-center" role="alert">
+                      <span className="mr-1" aria-hidden="true">⚠️</span> Please enter a valid email address
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-forest-primary mb-2">
+                    Your Message <span className="text-teal-accent">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    rows={5}
+                    className={`w-full px-4 py-3 sm:px-5 sm:py-4 min-h-[48px] rounded-xl sm:rounded-2xl border-2 bg-cafe-cream/50 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-teal-accent/20 focus:border-teal-accent resize-none touch-manipulation ${
+                      touched.message && !validateField('message', formData.message) 
+                        ? 'border-red-400 bg-red-50' 
+                        : touched.message && validateField('message', formData.message)
+                        ? 'border-green-400 bg-green-50'
+                        : 'border-sage-light/30 hover:border-sage-light/60'
+                    }`}
+                    placeholder="Tell us what's on your mind..."
+                    aria-required="true"
+                    aria-describedby={touched.message && !validateField('message', formData.message) ? 'message-error' : null}
+                  />
+                  {touched.message && !validateField('message', formData.message) && (
+                    <p id="message-error" className="text-sm text-red-500 mt-1 flex items-center" role="alert">
+                      <span className="mr-1" aria-hidden="true">⚠️</span> Message must be at least 10 characters
+                    </p>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  className="btn-hover w-full px-6 py-3 sm:px-8 sm:py-4 min-h-[48px] bg-gradient-to-r from-forest-primary to-teal-accent text-white font-semibold rounded-xl sm:rounded-2xl shadow-lg touch-manipulation"
+                >
+                  <span className="relative z-10 flex items-center justify-center text-base sm:text-lg">
+                    Send Message
+                    <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                  </span>
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

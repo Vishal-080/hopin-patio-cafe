@@ -25,17 +25,25 @@ export default {
         'glass': 'rgba(255,255,255,0.1)',
         'glass-dark': 'rgba(0,0,0,0.1)',
         
-        // Cafe Theme Colors
-        'cafe-gold': '#D4AF37',     // Gold accent
-        'cafe-brown': '#8B4513',     // Rich brown
-        'cafe-teal': '#14B8A6',     // Teal accent
-        'cafe-dark': '#1F2937',     // Dark gray for text
-        'cafe-cream': '#FFF8E7',     // Cream background
+        // Cafe Theme Colors (Updated with Nature-Inspired Palette)
+        'cafe-gold': '#20b2aa',     // Teal accent
+        'cafe-brown': '#1a4d2e',     // Forest green primary
+        'cafe-teal': '#87a96b',     // Sage green secondary
+        'cafe-dark': '#0f172a',     // Dark forest green for text
+        'cafe-cream': '#f8fafc',     // Light cream background
         'cafe-light': '#F3F4F6',     // Light gray for borders
+        
+        // Nature-Inspired Color Palette
+        'forest-primary': '#1a4d2e',
+        'forest-secondary': '#87a96b', 
+        'teal-accent': '#20b2aa',
+        'sage-light': '#b8c99a',
+        'nature-dark': '#0f172a',
       },
       fontFamily: {
         'serif': ['Playfair Display', 'serif'],
-        'sans': ['Inter', 'sans-serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'heading': ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in',

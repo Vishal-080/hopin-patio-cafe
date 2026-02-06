@@ -97,6 +97,7 @@ desktop.ini
 # IDE and editor files
 .vscode/
 .idea/
+*/.sisyphus/
 .sisyphus/
 *.swp
 *.swo

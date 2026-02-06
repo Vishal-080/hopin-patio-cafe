@@ -1,181 +1,6 @@
-import React, { createContext, useContext, useReducer, useEffect } from 'react';
-import api from '../services/api';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
-
-const authReducer = (state, action) => {
-  switch (action.type) {
-    case 'LOGIN_SUCCESS':
-      return {
-        ...state,
-        isAuthenticated: true,
-        user: action.payload.user,
-        token: action.payload.token,
-        refreshToken: action.payload.refreshToken,
-        loading: false,
-      };
-    case 'LOGOUT':
-      return {
-        ...state,
-        isAuthenticated: false,
-        user: null,
-        token: null,
-        refreshToken: null,
-        loading: false,
-      };
-    case 'SET_LOADING':
-      return {
-        ...state,
-        loading: action.payload,
-      };
-    case 'SET_USER':
-      return {
-        ...state,
-        user: action.payload,
-      };
-    case 'UPDATE_PROFILE':
-      return {
-        ...state,
-        user: { ...state.user, ...action.payload },
-      };
-    default:
-      return state;
-  }
-};
-
-const initialState = {
-  isAuthenticated: false,
-  user: null,
-  token: localStorage.getItem('accessToken'),
-  refreshToken: localStorage.getItem('refreshToken'),
-  loading: true,
-};
-
-export const AuthProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducer, initialState);
-
-  useEffect(() => {
-    const initAuth = async () => {
-      const token = localStorage.getItem('accessToken');
-      
-      if (token) {
-        try {
-          const profileData = await api.getProfile();
-          dispatch({
-            type: 'SET_USER',
-            payload: profileData.data,
-          });
-          dispatch({
-            type: 'LOGIN_SUCCESS',
-            payload: {
-              user: profileData.data,
-              token,
-              refreshToken: localStorage.getItem('refreshToken'),
-            },
-          });
-        } catch (error) {
-          localStorage.removeItem('accessToken');
-          localStorage.removeItem('refreshToken');
-          dispatch({ type: 'LOGOUT' });
-        }
-      }
-      
-      dispatch({ type: 'SET_LOADING', payload: false });
-    };
-
-    initAuth();
-  }, []);
-
-  const login = async (email, password) => {
-    dispatch({ type: 'SET_LOADING', payload: true });
-    
-    try {
-      const response = await api.login(email, password);
-      
-      if (response.success) {
-        const { user, token, refreshToken } = response.data;
-        
-        localStorage.setItem('accessToken', token);
-        localStorage.setItem('refreshToken', refreshToken);
-        
-        dispatch({
-          type: 'LOGIN_SUCCESS',
-          payload: { user, token, refreshToken },
-        });
-        
-        return { success: true };
-      }
-    } catch (error) {
-      dispatch({ type: 'SET_LOADING', payload: false });
-      
-      return {
-        success: false,
-        error: error.response?.data?.error?.message || 'Login failed',
-      };
-    }
-  };
-
-  const register = async (userData) => {
-    dispatch({ type: 'SET_LOADING', payload: true });
-    
-    try {
-      const response = await api.register(userData);
-      
-      if (response.success) {
-        const { user, token, refreshToken } = response.data;
-        
-        localStorage.setItem('accessToken', token);
-        localStorage.setItem('refreshToken', refreshToken);
-        
-        dispatch({
-          type: 'LOGIN_SUCCESS',
-          payload: { user, token, refreshToken },
-        });
-        
-        return { success: true };
-      }
-    } catch (error) {
-      dispatch({ type: 'SET_LOADING', payload: false });
-      
-      return {
-        success: false,
-        error: error.response?.data?.error?.message || 'Registration failed',
-      };
-    }
-  };
-
-  const logout = () => {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-    dispatch({ type: 'LOGOUT' });
-  };
-
-  const updateProfile = async (profileData) => {
-    try {
-      dispatch({
-        type: 'UPDATE_PROFILE',
-        payload: profileData,
-      });
-      return { success: true };
-    } catch (error) {
-      return {
-        success: false,
-        error: error.response?.data?.error?.message || 'Profile update failed',
-      };
-    }
-  };
-
-  const value = {
-    ...state,
-    login,
-    register,
-    logout,
-    updateProfile,
-    dispatch,
-  };
-
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-};
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -183,4 +8,65 @@ export const useAuth = () => {
     throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;
+};
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Check for existing auth token or user data
+    const token = localStorage.getItem('authToken');
+    const userData = localStorage.getItem('userData');
+    
+    if (token && userData) {
+      try {
+        setUser(JSON.parse(userData));
+      } catch (error) {
+        console.error('Error parsing user data:', error);
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('userData');
+      }
+    }
+    
+    setLoading(false);
+  }, []);
+
+  const login = async (credentials) => {
+    try {
+      // This would typically make an API call
+      // For now, we'll just simulate a successful login
+      const userData = { id: 1, email: credentials.email, name: 'User' };
+      const token = 'mock-jwt-token';
+      
+      localStorage.setItem('authToken', token);
+      localStorage.setItem('userData', JSON.stringify(userData));
+      setUser(userData);
+      
+      return { success: true, user: userData };
+    } catch (error) {
+      console.error('Login error:', error);
+      return { success: false, error: error.message };
+    }
+  };
+
+  const logout = () => {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userData');
+    setUser(null);
+  };
+
+  const value = {
+    user,
+    login,
+    logout,
+    loading,
+    isAuthenticated: !!user
+  };
+
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

@@ -1,136 +1,201 @@
-
-import { FiCoffee, FiHeart, FiUsers } from 'react-icons/fi'
+import React, { useState } from 'react';
 
 const About = () => {
+  const [activeFeature, setActiveFeature] = useState(0);
+
   const features = [
     {
-      icon: <FiCoffee size={40} />,
-      title: 'Premium Coffee',
-      description: 'Sourced from the finest coffee regions, expertly roasted to perfection.',
+      title: "Premium Coffee",
+      description: "Premium quality beans roasted to perfection",
+      icon: "☕"
     },
     {
-      icon: <FiHeart size={40} />,
-      title: 'Crafted with Love',
-      description: 'Every cup is prepared with passion and attention to detail.',
+      title: "Patio Paradise", 
+      description: "Beautiful outdoor setting with comfortable seating",
+      icon: "🌿"
     },
     {
-      icon: <FiUsers size={40} />,
-      title: 'Community Hub',
-      description: 'A welcoming space where friends gather and memories are made.',
+      title: "Pet Friendly",
+      description: "Pet-friendly Cafe",
+      icon: "🐾"
     },
-  ]
+    {
+      title: "Expert Baristas",
+      description: "Friendly staff passionate about coffee",
+      icon: "✨"
+    },
+    {
+      title: "Perfect Ambiance",
+      description: "Ideal for work, meetings, or relaxation",
+      icon: "🌸"
+    }
+  ];
 
   return (
-    <section id="about" className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hero Story Section */}
-        <div className="text-center mb-20">
-          <span className="text-primary text-sm uppercase tracking-wider font-medium">
-            Our Story
-          </span>
-          <h2 className="text-4xl md:text-6xl font-serif font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mt-4 mb-6">
-            A Legacy of Excellence
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mb-8"></div>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-xl text-neutral-dark mb-8 leading-relaxed font-medium drop-shadow-sm">
-              HOPIN PATIO Cafe was born from a simple dream: to create a sanctuary
-              where coffee lovers can escape the ordinary and indulge in the extraordinary.
-              Our patio setting offers a unique blend of indoor comfort and outdoor serenity.
-            </p>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-lg text-neutral-dark mb-6 leading-relaxed font-medium drop-shadow-sm">
-                  We believe that great coffee is more than just a beverage—it's an experience.
-                  From the moment you step into our space, you're welcomed into a world of
-                  refined taste, warm hospitality, and moments of pure bliss.
-                </p>
-                <p className="text-lg text-neutral-dark leading-relaxed font-medium drop-shadow-sm">
-                  Every detail, from our carefully selected beans to our elegant presentation,
-                  reflects our commitment to providing you with nothing less than perfection.
-                </p>
-              </div>
+    <section id="about" className="relative bg-gradient-to-br from-cafe-cream via-white to-sage-light/20 overflow-hidden">
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-teal-accent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-forest-primary rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/3 w-40 h-40 bg-sage-light rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-32">
+        <div className="text-center mb-12 lg:mb-20 fade-in">
+          <div className="inline-block">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-forest-primary mb-4 lg:mb-6 leading-tight">
+              About
+              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-teal-accent mt-2">
+                Hopin-Patio Cafe
+              </span>
+            </h2>
+            <div className="w-16 h-1 sm:w-20 sm:h-1 bg-gradient-to-r from-teal-accent to-forest-primary mx-auto mb-6 lg:mb-8 rounded-full"></div>
+          </div>
+          <p className="text-lg sm:text-xl md:text-2xl text-nature-dark/80 max-w-3xl mx-auto font-light leading-relaxed px-4">
+            Discover our story of passion, quality, and exceptional coffee experiences in the heart of <b>Indore.</b>
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-12 lg:mb-20">
+          <div className="lg:col-span-7 space-y-6 lg:space-y-8">
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 luxury-shadow-lg relative overflow-hidden hover-card fade-in stagger-1">
+              <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-sage-light/20 to-transparent rounded-bl-full"></div>
+              
               <div className="relative">
-                <div className="absolute -inset-6 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 rounded-2xl transform rotate-2"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Cafe interior"
-                  className="relative rounded-2xl shadow-2xl w-full h-[300px] object-cover"
-                />
+                <span className="inline-block px-3 py-1 sm:px-4 sm:py-2 bg-forest-primary text-white text-sm font-medium rounded-full mb-4 lg:mb-6">
+                  Our Story
+                </span>
+                
+                <div className="space-y-4 lg:space-y-6 text-nature-dark/80">
+                  <p className="text-base sm:text-lg leading-relaxed">
+                    Founded with a passion for exceptional Coffee and delicious Food.
+                    <br/>
+                    <br/>
+                    <b>Hopin-Patio Cafe</b> has been serving the people of <b>Indore</b> with premium coffee experiences since our inception.
+                  </p>
+                  <p className="text-base sm:text-lg leading-relaxed">
+                    Our elegant patio setting provides the perfect atmosphere for both intimate 
+                    conversations and productive work sessions, all while enjoying our <b>artisan Coffees</b> and <b>fresh Food.</b>
+                  </p>
+                  {/* <p className="text-base sm:text-lg leading-relaxed">
+                    We believe that great coffee brings people together, and our mission is to 
+                    create memorable moments for every guest who walks through our doors.
+                  </p> */}
+                </div>
               </div>
+            </div>
+
+            
+          </div>
+
+          <div className="lg:col-span-5 space-y-6 lg:space-y-8">
+            <div className="relative group hover-image fade-in stagger-3">
+              <div className="absolute inset-0 bg-gradient-to-tr from-forest-primary/20 to-teal-accent/20 rounded-2xl rotate-3 transform transition-transform duration-500 group-hover:rotate-6"></div>
+              <img 
+                src="/images/hopin_interior1.jpg" 
+                alt="HOPIN PATIO Interior"
+                className="relative rounded-2xl w-full h-48 sm:h-56 lg:h-80 object-cover shadow-2xl"
+              />
+            </div>
+
+            <div className="relative -ml-4 sm:-ml-8 lg:-ml-16 group hover-image fade-in stagger-4">
+              <div className="absolute inset-0 bg-gradient-to-bl from-sage-light/30 to-forest-primary/10 rounded-2xl -rotate-3 transform transition-transform duration-500 group-hover:-rotate-6"></div>
+              <img 
+                src="/images/hopin_food1.jpg" 
+                alt="Fresh Coffee and Pastries"
+                className="relative rounded-2xl w-full h-40 sm:h-48 lg:h-56 object-cover shadow-xl transform transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
           </div>
         </div>
-
-        {/* Features */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-20">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="text-center p-8 glass-morphism rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 group border border-white/20"
-            >
-              <div className="text-primary mb-6 flex justify-center group-hover:scale-110 transition-transform duration-300">
-                {feature.icon}
-              </div>
-              <h3 className="text-2xl font-serif font-semibold text-neutral-dark mb-4 group-hover:text-primary transition-colors duration-300">
-                {feature.title}
-              </h3>
-              <p className="text-neutral-dark/70 leading-relaxed group-hover:text-neutral-dark transition-colors duration-300">
-                {feature.description}
-              </p>
+        <div className="flex justify-center items-center gap-2 sm:gap-3 w-full mb-8">
+              {features.map((feature, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveFeature(index)}
+                  className={`btn-hover px-8 py-6 sm:px-4 sm:py-4 min-h-[44px] rounded-full font-medium text-sm sm:text-base transition-all duration-300 whitespace-nowrap transform hover:scale-105 ${
+                    activeFeature === index
+                      ? 'bg-gradient-to-r from-forest-primary to-teal-accent text-white shadow-lg scale-105'
+                      : 'bg-white/60 text-nature-dark/70 hover:bg-white/80 hover:shadow-md'
+                  }`}
+                >
+                  <div className="mr-2">{feature.icon}</div>
+                  {feature.title}
+                </button>
+              ))}
             </div>
-          ))}
-        </div>
 
-
-
-        {/* Photo Gallery Preview */}
-        <div className="text-center mb-12">
-          <span className="text-primary text-sm uppercase tracking-wider font-medium">
-            Our Space
-          </span>
-          <h3 className="text-3xl font-serif font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mt-4 mb-8">
-            A Visual Journey
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              '/images/hopin_outer.jpg',
-              '/images/hopin_outer2.jpg',
-              '/images/hopin_outer3.jpg',
-              '/images/hopin_outer4.jpg',
-            ].map((url, index) => (
-              <div
-                key={index}
-                className="relative aspect-square rounded-lg overflow-hidden group cursor-pointer shine-effect"
-                onClick={() => {
-                  const gallery = document.querySelector('#gallery')
-                  if (gallery) {
-                    gallery.scrollIntoView({ behavior: 'smooth' })
-                  }
-                }}
-              >
-                <img
-                  src={url}
-                  alt={`Cafe view ${index + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+            {/* Active Feature Description */}
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 sm:p-8 relative overflow-hidden fade-in max-w-4xl mx-auto mb-8">
+              <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-teal-accent/20 to-transparent rounded-bl-full"></div>
+              <div className="relative">
+                <div className="flex items-center mb-4">
+                  <span className="text-3xl sm:text-4xl mr-3">{features[activeFeature].icon}</span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-forest-primary">
+                    {features[activeFeature].title}
+                  </h3>
+                </div>
+                <p className="text-base sm:text-lg text-nature-dark/80 leading-relaxed">
+                  {features[activeFeature].description}
+                </p>
               </div>
-            ))}
+            </div>
+
+        <div className="bg-gradient-to-r from-forest-primary to-teal-accent rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="relative">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-8 lg:mb-12 text-center">
+              Why Choose HOPIN PATIO?
+            </h3>
+            
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">{
+                [{
+                  icon: "🥗",
+                  title: "Pure Vegetarian",
+                  description: "Premium quality veggies from sustainable farms"
+                },
+                {
+                  icon: "🐾",
+                  title: "Pet Friendly",
+                  description: "Pet-friendly Cafe"
+                },
+                {
+                  icon: "🏡",
+                  title: "Beautiful Patio",
+                  description: "Perfect outdoor setting with comfortable seating"
+                },
+                {
+                  icon: "👥",
+                  title: "Expert Staff",
+                  description: "Friendly baristas passionate about coffee"
+                },
+                {
+                  icon: "🌺",
+                  title: "Relaxing Ambiance",
+                  description: "Peaceful vibes for focus and conversation"
+                },
+                {
+                  icon: "💻",
+                  title: "Work Friendly",
+                  description: "High-speed WiFi and power outlets available"
+                }
+              ].map((item, index) => (
+                <div 
+                  key={index}
+                  className={`bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 transform transition-all duration-300 hover:scale-105 hover:bg-white/20 cursor-pointer touch-manipulation active:scale-95 ${
+                    item.highlight ? 'ring-2 ring-white/50' : ''
+                  }`}
+                >
+                  <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{item.icon}</div>
+                  <h4 className="text-lg sm:text-xl font-bold mb-2">{item.title}</h4>
+                  <p className="text-white/80 text-sm leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <a
-            href="#gallery"
-            className="inline-block mt-8 text-cafe-teal hover:text-cafe-brown font-semibold transition-colors duration-300"
-          >
-            View Full Gallery →
-          </a>
         </div>
-
-
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;
