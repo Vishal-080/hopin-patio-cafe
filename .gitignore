@@ -45,6 +45,7 @@ coverage/
 .yarn-integrity
 .pnp*
 .pnp.js
+Frontend/pnpm-lock.yaml
 
 # Cache directories
 .cache/
